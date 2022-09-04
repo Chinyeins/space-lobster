@@ -2,6 +2,11 @@
 /************************************
 * STYLE MAIN
 ************************************/
+
+.align-center {
+  text-align: center;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -185,11 +190,72 @@ see: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Al
     opacity: 0.75;
 }
 
+/*Standard Game UI Look*/
+.ui {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  background-color: rgba(0,0,0, 0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  padding: 1em;
+}
+
+.ui-window {
+  padding: 0.2em;
+  border: 2px solid black; 
+  background-color: white;
+  border-radius: 20px;
+}
+
+.ui-title {
+  border-bottom: 1px solid gray;
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+.ui-text {
+  font-size: 1.2em;
+  clear: both;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.ui-panel {
+  padding: 1em;
+  min-width: 350px;
+}
+
+/*macht ui element unsichtbar*/
+.ui-hide {
+  visibility: hidden;
+  display: none;
+  z-index: -1;
+}
+
+/*macht user interface container hintergrund unsichtbar */
+.ui-background-hide {
+  z-index: -1;
+  background-color: transparent;
+}
 
 /************************************
-* STYLE 
+* STYLE Buttons
 ************************************/
 
+.ui-button {
+  background-color: rgba(0,0,0, 0.8);
+  color: white;
+  width: auto;
+  font-size: 1.2em;
+  padding: 0.15em 0.75em;
+}
+
+.ui-button:hover {
+  color: red;
+}
 
 /************************************
 * STYLE 

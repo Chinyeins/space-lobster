@@ -16,11 +16,21 @@ class Game {
     //Audio Komponente
     audio = null;
 
-    //Standard Konstruktor
-    constructor(audio) {
+    //User Interface Komponente
+    ui = null;
+
+    /**
+     * Spiele Konstruktor. Braucht Argumente, wie Audio und UI.
+     * @param {Audio} audio Sound Klasse
+     * @param {UI} user UserInterface Klasse
+     */
+    constructor(audio, ui) {
 
         //initialisiere audio Komponente, sodass wir innerhalb klasse, audio funktionen nutzen können.
         this.audio = audio;
+
+        //initialisiere ui Komponente
+        this.ui = ui;
     }
 
 

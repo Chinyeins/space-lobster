@@ -13,8 +13,10 @@ window.onload = function (event) {
     //Erstelle Audio Objekt
     const audio = new Sound();
 
+    const ui = new UI();
+
     //Erstelle neues Spiel Objekt mit allen benötigten Komponenten..
-    const game = new Game(audio);
+    const game = new Game(audio, ui);
     
     //führe StartGame Funktion auf Objekt aus.
     //startet das Spiel....
