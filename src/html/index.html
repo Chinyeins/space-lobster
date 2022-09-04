@@ -10,6 +10,14 @@
 </head>
 
 <body id="game">
+  <!-- Controlls Menu, muss immer sichtbar sein-->
+  <div id="controllsMenu">
+    <h2>Controlls:</h2>
+    <div class="ui-control" id="muteMusicBtn">
+      <div class="ui-button">Sound On</div>
+      <div class="ui-button ui-hide">Sound Off</div>
+    </div>
+  </div>
 
   <!-- Nutzen wir, zum sammeln von Benutzeroberflächen, die wir dynamisch ein und ausblenden-->
   <div id="userInterface" class="ui">
@@ -67,7 +75,8 @@
 <!-- Spiele Logik, ausgelagert in verschiedene Klassen -->
 <script type="text/javascript" src="./../js/game.js"></script>
 <script type="text/javascript" src="./../js/sound.js"></script>
-<script type="text/javascript" src="./../js/ui.js"></script>
+<script type="text/javascript" src="./../js/ui/main-menu.js"></script>
+<script type="text/javascript" src="./../js/ui/controlls-menu.js"></script>
 
 <!-- Spiel Einstiegspunkt -->
 <script type="text/javascript" src="./../js/main.js"></script>

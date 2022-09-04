@@ -3,7 +3,7 @@
  * Kümmert sich um die Darstellung der verschiedenen Anzeigen / Views. z.B. Start Game, Game Over etc.
  */
 
-class UI {
+class MainMenu {
 
     //Hauptmenu Referenz
     mainMenu;

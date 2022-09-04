@@ -24,13 +24,13 @@ class Game {
      * @param {Audio} audio Sound Klasse
      * @param {UI} user UserInterface Klasse
      */
-    constructor(audio, ui) {
+    constructor(audio, mainMenu) {
 
         //initialisiere audio Komponente, sodass wir innerhalb klasse, audio funktionen nutzen können.
         this.audio = audio;
 
         //initialisiere ui Komponente
-        this.ui = ui;
+        this.ui = mainMenu;
     }
 
 

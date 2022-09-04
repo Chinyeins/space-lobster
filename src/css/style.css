@@ -257,6 +257,32 @@ see: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Al
   color: red;
 }
 
+.ui-active-button:first-child {
+  visibility: hidden;
+}
+.ui-active-button:last-child {
+  visibility: visible;
+}
+
 /************************************
-* STYLE 
+* STYLE Controlls UI
 ************************************/
+
+#controllsMenu {
+  display: flex;
+  position: absolute;
+  width: auto;
+  background-color: white;
+  z-index: 9991;
+  bottom: 0;
+  right: 0;
+}
+
+.ui-control {
+  background-color: white;
+  color: black;
+  cursor: default;
+  width: auto;
+  height: auto;
+  display: block;
+}
