@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <title>Space Lobster</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="./../css/style.css">
+</head>
+
+<body id="game">
+
+  <div class="rockets">
+    <div id="btn1" class="rocket">Button 1</div>
+    <div id="btn2" class="rocket">Button 2</div>
+    <div id="btn3" class="rocket">Button 3</div>
+  </div>
+
+
+  <!--  -->
+  <section>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </section>
+</body>
+
+<footer>
+  <!-- Nutzen wir, zum sammeln von Benutzeroberflächen, die wir dynamisch ein und ausblenden-->
+
+
+  <div id="gameStartUI" class="game-ui">
+    <div class="popup">
+      <h2 class="title"></h2>
+      <p class="text"></p>
+
+      <button class="game-button">
+        <span>Start</span>
+      </button>
+    </div>
+  </div>
+
+</footer>
+
+
+<!-- scripts: wir laden alle Skripte am Ende, da wir dann sicherstellen können, wir Zugrif auf tags haben (Race Condition). -->
+
+<!-- Spiele Logik, ausgelagert in verschiedene Klassen -->
+<script type="text/javascript" src="./../js/game.js"></script>
+<script type="text/javascript" src="./../js/sound.js"></script>
+
+<!-- Spiel Einstiegspunkt -->
+<script type="text/javascript" src="./../js/main.js"></script>
+
+</html>
