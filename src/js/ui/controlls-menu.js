@@ -19,7 +19,6 @@ class ControllsMenu {
 
         //setup mute/unmute controll button
         this.toggleMuteMusicBtn = document.getElementById("muteMusicBtn");
-        console.log(this.toggleMuteMusicBtn);
         this.toggleMuteMusicBtn.addEventListener("click", (e) => this.toggleMuteMusic(e));
 
         console.log("controlls initialized");
