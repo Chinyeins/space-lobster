@@ -19,9 +19,14 @@ class Game {
     //User Interface Komponente
     mainMenu = null;
 
+    //User Interface Komponente
+    gameOverMenu = null;
+
+    //User Interface Komponente
+    finishMenu = null;
+
     rockets = [];
 
-    gameOverMenu;
 
     /**
      * Spiele Konstruktor. Braucht Argumente, wie Audio und UI.
@@ -83,6 +88,57 @@ class Game {
         if(this.gameOverMenu) {
             this.gameOverMenu.hideGameOverMenu();
         }
+    }
+
+    /**
+     * Player won the game.
+     */
+    finishGame() {
+        console.log("Game finished. Player won.");
+
+        //hole Rakete mit bombe...
+        let rocketWithBomb = this.getLastRocketWithBomb();
+
+        //erstelle Spiel Gewonnen UI mit allen Daten...
+        this.finishMenu = new GameFinishedMenu(game, rocketWithBomb);
+    }
+
+    /**
+     * Finishing Game Rule:
+     *  Checks if the player won the game
+     * @returns true | false
+     */
+    isGameFinishedRule() {
+        //is only bomb left?
+        let checkedRocketsCount = 0;
+
+        this.rockets.forEach((rocket) => {
+            if(rocket.getIsTerminated()) {
+                //rock was terminated and ...
+
+                //has no bomb
+                if(!rocket.getHasBomb()) {
+                    checkedRocketsCount++; //increment rocket checked counter....
+                }
+            }
+        });
+
+        //RULE: if every rocket except the one with the bomb was checked, the game is finished
+        
+        let totalRocketsInGame = this.rockets.length;
+
+        if(totalRocketsInGame <= 1) {
+            console.error("Fehler: Es sollten immer mindestens 2 Raketen existieren");
+            //da stimmt was nicht!...
+            return false;
+        }
+
+        //wenn alle Raketen, bis auf eine, geprüft wurden und die letzte Rakte die Bombe ist....
+        if((totalRocketsInGame - checkedRocketsCount) <= 1) {
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -183,6 +239,7 @@ class Game {
 
             //Abbruch Bedingung -> Spiel vorbei.
             this.gameOver();
+            return; //terminate this call...
         } else {
             //Rackete hat nicht die Bombe!
 
@@ -196,6 +253,23 @@ class Game {
             //die Terminierungslogik ausführen...
             this.rockets[rocketIndexClicked].terminate(e);
         }
+
+        if(this.isGameFinishedRule()) {
+            this.finishGame();
+            return; // terminate this call...
+        }
+    }
+
+    /**
+     * Return the rocket with the Bomb.
+     * @returns Rocket
+     */
+    getLastRocketWithBomb() {
+        return this.rockets.forEach((rocket) => {
+            if(rocket.getHasBomb()) {
+                return rocket;
+            }
+        });
     }
 
     /**

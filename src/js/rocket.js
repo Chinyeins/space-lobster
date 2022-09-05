@@ -40,12 +40,15 @@ class Rocket {
     /**
      * Rackete zerstört sich selber, bzw. deaktiviert sich.
      */
-    terminate(e,) {
+    terminate(e) {
+        console.log("Rocket: " + this.getId() + " was terminated....");
+        
         this.setIsTerminated(true);
 
         //hier könnte man nun einen sound effekt abspielen etc...
         //oder Aussehen d. Rakete verändern. Dazu ist weiterer code nötig...
-
-        console.log("Rocket: " + this.getId() + " was terminated....");
+        
+        let rocketBtn = e.target;
+        rocketBtn.classList.add("rocket-terminated");
     }
 }

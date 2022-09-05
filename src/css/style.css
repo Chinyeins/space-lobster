@@ -286,3 +286,12 @@ see: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Al
   height: auto;
   display: block;
 }
+
+/************************************
+* STYLE Rockets
+************************************/
+
+.rocket-terminated {
+  background-color: red;
+  z-index: -1;/*make element not clickable anymore*/
+}
