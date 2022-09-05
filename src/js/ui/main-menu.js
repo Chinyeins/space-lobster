@@ -14,10 +14,15 @@ class MainMenu {
     //game reference - used to alter game "state".
     game;
 
+    //reference to audio Komponente
+    audio;
+
     //Standard Konstruktor. Sobald Objekt erzeugt wird, wird der Inhalt im Konstruktor ausgeführt.
     //Wir nutzen den Konstruktor um die Klasse zu initialisieren mit Standard Werten. z.B. finde mainMenu Refernz aus HTML (Dom).
     //see: was ist ein DOM -> https://www.w3.org/TR/WD-DOM/introduction.html#:~:text=Introduction,document%20is%20accessed%20and%20manipulated.
-    constructor() {
+    constructor(audio) {
+        this.audio = audio;
+
         this.userInterface = document.getElementById("userInterface");
 
         this.mainMenu = document.getElementById("mainMenu");
@@ -54,6 +59,9 @@ class MainMenu {
 
         //start the game
         this.game.startGame();
+
+        //play music - will be muted, if controlls says its mute...
+        this.audio.playMusic();
     }
 
     mainMenuCreditsButtonClicked(e, button) {

@@ -15,7 +15,7 @@ window.onload = function (event) {
     //Erstelle Controlls Menu
     const controllsMenu = new ControllsMenu(audio);
     //Erstelle HauptMenü
-    const mainMenu = new MainMenu()
+    const mainMenu = new MainMenu(audio);
     //Erstelle neues Spiel Objekt mit allen benötigten Komponenten..
     const game = new Game(audio, mainMenu);
 

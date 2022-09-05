@@ -28,6 +28,10 @@ class Sound {
         this.muteMusic();
     }
 
+    playMusic() {
+        this.music.play();
+    }
+
     muteMusic() {
         this.music.volume = 0.0;
     }
