@@ -10,6 +10,8 @@
  * Ist der Haupteinstiegspunkt vom Spiel. D.h. hier wird spiel gestartet und beendet. 
  * Alle weieteren JavaScript Dateien werden hier zusammengeführt und benutzt.
  */
+
+const NUMBER_ROCKETS = 3;
 class Game {
     // Variablen Definiton - Eigenschaften von Spiel
 
@@ -27,6 +29,8 @@ class Game {
 
     rockets = [];
 
+    //all div > html > Rocket Button tags as array
+    rocketButtons = [];
 
     /**
      * Spiele Konstruktor. Braucht Argumente, wie Audio und UI.
@@ -40,6 +44,9 @@ class Game {
 
         //initialisiere ui Komponente
         this.mainMenu = mainMenu;
+
+        //get reference of all rocket buttons...
+        this.rocketsBtn = document.getElementById("rocketsBtn");
     }
 
     /*************************************************
@@ -88,6 +95,19 @@ class Game {
         if(this.gameOverMenu) {
             this.gameOverMenu.hideGameOverMenu();
         }
+
+        if(this.finishMenu) {
+            this.finishMenu.hideMenu();
+        }
+
+        //destroy rockets data
+        this.rockets = [];
+
+        //create new rockets
+        this.initRockets();
+
+        //reset visual state of buttons
+        this.resetRocketButtons();
     }
 
     /**
@@ -100,7 +120,7 @@ class Game {
         let rocketWithBomb = this.getLastRocketWithBomb();
 
         //erstelle Spiel Gewonnen UI mit allen Daten...
-        this.finishMenu = new GameFinishedMenu(game, rocketWithBomb);
+        this.finishMenu = new GameFinishedMenu(this, rocketWithBomb);
     }
 
     /**
@@ -175,6 +195,13 @@ class Game {
         this.checkForBomb(e, btnClickedIndex);
     }
 
+    /**
+     * Get HTML Tag that holds all rocket buttons
+     */
+    getRocketsButtons() {
+        return document.getElementsByClassName("rocket");
+    }
+
 
     /*************************************************
     * GAMEPLAY LOGIC - ROCKETS
@@ -188,7 +215,7 @@ class Game {
         console.log("Initializing rockets... hiding bomb!");
         if (!rocketCount) {
             //rocketCount ist keine Zahl oder ungültiger Wert...
-            rocketCount = 3; // default to 3 rockets, if weired value is passed
+            rocketCount = NUMBER_ROCKETS; // default to 3 rockets, if weired value is passed
         }
 
         for (let i = rocketCount; i > 0; i--) {
@@ -270,6 +297,20 @@ class Game {
                 return rocket;
             }
         });
+    }
+
+    /**
+     * 
+     * @returns 
+     */
+    resetRocketButtons() {
+        const buttons = this.getRocketsButtons();
+
+        for(let button of buttons) {
+            button.classList.remove("rocket-terminated");
+        }
+           
+        return;
     }
 
     /**

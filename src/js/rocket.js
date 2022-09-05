@@ -49,6 +49,16 @@ class Rocket {
         //oder Aussehen d. Rakete verändern. Dazu ist weiterer code nötig...
         
         let rocketBtn = e.target;
+
+        //add visual feedback to rocket termination...
         rocketBtn.classList.add("rocket-terminated");
+    }
+
+    /**
+     * Reset Rocket to initial state...
+     */
+    reset() {
+        this.setHasBomb(false);
+        this.setIsTerminated(false);
     }
 }
