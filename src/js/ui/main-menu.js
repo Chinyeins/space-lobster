@@ -33,12 +33,23 @@ class MainMenu {
     }
 
 
+    /**
+     * MAIN MENU BUTTON HANDLING
+     */
+
     mainMenuStartButtonClicked(e, button) {
         e.preventDefault();
         
         console.log("Main Menu Start btn clicked...");
 
-        this.hideUiBackground();
+        //rufe generelle funktion auf, die in ui-utils.js liegt...
+        //in der index.html werden alle scripte inmportiert, d.h. wenn wir hier auf diese Funktion zugreifen wollen, können wir das machen, weil die Datei global dort geladen wurde.
+        //wir könnten diese Funktion nun in jeder js datei benutzen.
+        hideUiBackground();//macht den code so aber etwas unübersichtig, weil man nicht direkt, sieht woher die funktion kommt... 
+        //besser wäre sich Vererbung zunutze zu machen. D.h. man erstellt eine Klasse UserInterface, die diese Funktion beinhaltet.
+        //Nun leitet man in jeder UI Klasse, wie main-menu.js von der UserInterface Klasse ab.
+        //das Gleiche tut man in allen weiteren UI Klassen, die diese Funktion haben soll....
+        
         this.hideMainMenu();
 
         //start the game
@@ -51,6 +62,12 @@ class MainMenu {
         console.log("Main Menu Credits btn clicked...");
     }
 
+
+    /**
+     * MAIN MENU HELPER FUNCTIONS
+    */
+
+
     showMainMenu() {
         //entferne css klasse, ui-hide von mainMenu element. Sorgt dafür, dass Tag sichtbar wird.
         this.mainMenu.classList.remove("ui-hide");
@@ -61,12 +78,5 @@ class MainMenu {
         this.mainMenu.classList.add("ui-hide");
     }
 
-
-    hideUiBackground() {
-        this.userInterface.classList.add("ui-background-hide");
-    }
-
-    showUiBackground() {
-        this.userInterface.classList.remove("ui-background-hide");
-    }
+    
 }
