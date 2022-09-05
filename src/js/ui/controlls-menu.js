@@ -8,6 +8,7 @@
 class ControllsMenu {
 
     audio;
+
     muteSound;
 
     toggleMuteMusicBtn;
@@ -32,13 +33,18 @@ class ControllsMenu {
 
         if(this.isMute) {
             console.log("Music Unmute");
+
             this.isMute = false;
+
             this.audio.unMuteMusic();
+            
             button.firstElementChild.classList.add("ui-hide");
             button.lastElementChild.classList.remove("ui-hide");
         } else {
             console.log("Music Mute");
+
             this.isMute = true;
+
             this.audio.muteMusic();
 
             button.firstElementChild.classList.remove("ui-hide");

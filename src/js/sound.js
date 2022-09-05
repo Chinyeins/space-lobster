@@ -38,19 +38,5 @@ class Sound {
 
     unMuteMusic() {
         this.music.volume = 0.25;
-        this.music.play()
     }
 }
-
-
-
-
-
-/* <audio autoplay id="music" loop>
-    <source src="8_bit_track.mp3">
-  </audio>
-  <script>
-    var audio = document.getElementById("music");
-    audio.volume = 0.2;
-  </script>
- */
